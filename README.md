@@ -2,13 +2,12 @@
 
 A playable Crow Mauler campaign for **Fear & Hunger 1**, by Naoassisto.
 
-Enter the dungeon with 5,000 HP, two actions per turn, and the original monster's Maul, Peck, Flock of crows, and Empty stare. Guards leave you alone; other living NPCs fight or flee. Includes a custom battle sprite, a text intro, and three adapted solo endings.
 
-**Requires your own copy of Fear & Hunger 1.** This repository contains the mod and its documentation. The game is not included. Fear & Hunger 2: Termina is unsupported.
+
 
 ## Download
 
-Current version: **1.7.0-beta.1**.
+Current version: **1.7.2-beta.1**.
 
 [Download the mod](https://github.com/naoassisto/Playable-Crow-Mauler/releases/download/v1.7.0-beta.1/Playable-Crow-Mauler-1.7.0-beta.1.zip). The ZIP contains the five mod files, this installation guide, and the third-party license notice.
 
@@ -70,6 +69,6 @@ Close the game. Restore your backed-up `js/main.js` and remove the other four fi
 
 ## Credits and permissions
 
-An unofficial fan mod by Naoassisto, who supplied the story and player battle sprite. The sprite is included with permission for distribution with this mod. Fear & Hunger and its original characters, art, audio, and data belong to their respective creators. Original mauler/mauler2 assets are referenced from the player's own installation and are not included here.
+An unofficial fan mod by Naoassisto, who supplied the story and player battle sprite. The sprite is included with permission for distribution with this mod. Fear & Hunger and its original characters, art, audio, and data belong to their respective creators. 
 
 The physical-attack fix is adapted from Coelocanth's 2018 physical_attack_animation plugin and retains its [BSD-style license](LICENSE-Coelocanth.txt). Other original game plugins are used from the installed game and are not redistributed. The mod and sprite have no broader reuse license; contact Naoassisto before reuploads, ports, or inclusion in another mod.
