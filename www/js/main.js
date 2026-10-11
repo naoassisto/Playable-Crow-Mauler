@@ -8,7 +8,7 @@
             var panel = document.createElement('pre');
             panel.style.cssText = 'color:white;background:#111;padding:30px;white-space:pre-wrap;font:18px sans-serif';
             panel.textContent = 'Playable Crow Mauler could not start.\n\n' + message +
-                '\n\nClose the game. See README.txt for compatibility and removal instructions.';
+                '\n\nClose the game. See README.md for compatibility and removal instructions.';
             document.body.appendChild(panel);
         };
     }

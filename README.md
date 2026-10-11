@@ -10,13 +10,7 @@ Enter the dungeon with 5,000 HP, two actions per turn, and the original monster'
 
 Current version: **1.7.0-beta.1**.
 
-| Download | Contents |
-| --- | --- |
-| [Manual install ZIP](https://github.com/naoassisto/Playable-Crow-Mauler/releases/download/v1.7.0-beta.1/Playable-Crow-Mauler-1.7.0-beta.1-Manual.zip) | Recommended: copy the five mod files into your game. |
-| [ZIP with optional helpers](https://github.com/naoassisto/Playable-Crow-Mauler/releases/download/v1.7.0-beta.1/Playable-Crow-Mauler-1.7.0-beta.1.zip) | Same gameplay files, plus Windows/macOS backup and uninstall scripts. |
-| [Release notes and checksums](https://github.com/naoassisto/Playable-Crow-Mauler/releases/tag/v1.7.0-beta.1) | Changes, limitations, and SHA-256 files for both downloads. |
-
-Use one of the ZIPs above for installation. GitHub's automatic **Source code** downloads also contain the development tools.
+[Download the mod](https://github.com/naoassisto/Playable-Crow-Mauler/releases/download/v1.7.0-beta.1/Playable-Crow-Mauler-1.7.0-beta.1.zip). The ZIP contains the five mod files, this installation guide, and the third-party license notice.
 
 ## Install
 
@@ -34,8 +28,6 @@ The final path should be `www/js/main.js`, not `www/www/js/main.js`. Normal **Ne
 
 Right-click `Game.app` → **Show Package Contents** → `Contents/Resources/app.nw`. Back up `js/main.js`. Copy the five files from the download's `www` into the matching locations inside `app.nw`, replacing `main.js`. Copy individual files to avoid replacing whole folders in Finder.
 
-For optional automatic backup helpers, see [the full installation guide](README.txt). The [manual installation guide](docs/README-manual.txt) covers removal and updates too.
-
 ## What changes
 
 - Single-headed Crow Mauler with 5,000 HP and two freely chosen actions per turn.
@@ -43,7 +35,7 @@ For optional automatic backup helpers, see [the full installation guide](README.
 - Custom rear-view battle sprite and an optional text intro.
 - Guards ignore Mauler. Other identified living NPCs fight or flee; dialogue, trading, and recruitment are disabled.
 - Original roaming Crow Mauler encounters are suppressed during Mauler runs.
-- Adapted endings E, B, and D. **Route spoilers:** [gameplay reference](GAMEPLAY.txt) and [ending details](ending-audit.txt).
+- Adapted endings E, B, and D.
 - Human campaigns retain their original gameplay behavior.
 
 ## Compatibility and beta status
@@ -52,7 +44,7 @@ Built for the tested English Fear & Hunger database (`System.versionId 14145329`
 
 Mods replacing `js/main.js` need a combined loader. Mods using skill IDs 341–344 or changing characters, parties, NPCs, battles, intros, or endings can conflict. Start with a clean compatible installation. Dungeon Nights is unsupported.
 
-This is a beta. Automated checks have covered character setup, intro, combat, saves, NPC behavior, and ending transitions. Native Windows gameplay and the PowerShell helpers still need testing; a complete manual campaign and final-boss balance pass are outstanding.
+This is a beta. Automated checks have covered character setup, intro, combat, saves, NPC behavior, and ending transitions. Native Windows gameplay, a complete manual campaign, and a final-boss balance pass remain unverified.
 
 ## Files
 
@@ -68,18 +60,16 @@ The complete gameplay payload is five files:
 
 Only `main.js` replaces an original file on a clean installation. The other four files are added. The game engine, original art/audio, database files, `plugins.js`, and saves are not distributed here.
 
-Additional references: [intro text](intro-text.json), [changelog](CHANGELOG.txt), [build and test instructions](docs/DEVELOPMENT.md), and [credits](CREDITS.txt).
-
 ## Uninstall
 
-Close the game. If a helper installed the mod, use the matching uninstall helper. For a manual installation, restore your backed-up `js/main.js` and remove the other four files listed above if no other mod uses them. Keep your original pre-mod backup when updating. Do not load Mauler saves without the mod.
+Close the game. Restore your backed-up `js/main.js` and remove the other four files listed above if no other mod uses them. Keep your original pre-mod backup when updating. Do not load Mauler saves without the mod.
 
 ## Report a problem
 
-[Open an issue](https://github.com/naoassisto/Playable-Crow-Mauler/issues/new?template=bug_report.md) with your OS, game language/build, mod version, other installed mods, and the steps that reproduce the problem. Include the exact error text. For an unsupported-data error, include the named file.
+[Open an issue](https://github.com/naoassisto/Playable-Crow-Mauler/issues/new) with your OS, game language/build, mod version, other installed mods, and the steps that reproduce the problem. Include the exact error text. For an unsupported-data error, include the named file.
 
 ## Credits and permissions
 
-An unofficial fan mod by Naoassisto. Fear & Hunger and its original characters, art, audio, and data belong to their respective creators. The player battle sprite is included with permission for distribution with this mod.
+An unofficial fan mod by Naoassisto, who supplied the story and player battle sprite. The sprite is included with permission for distribution with this mod. Fear & Hunger and its original characters, art, audio, and data belong to their respective creators. Original mauler/mauler2 assets are referenced from the player's own installation and are not included here.
 
-The physical-attack fix retains Coelocanth's [BSD-style license](LICENSE-Coelocanth.txt). The mod and sprite have no broader reuse license; contact Naoassisto before reuploads, ports, or inclusion in another mod. See [CREDITS.txt](CREDITS.txt).
+The physical-attack fix is adapted from Coelocanth's 2018 physical_attack_animation plugin and retains its [BSD-style license](LICENSE-Coelocanth.txt). Other original game plugins are used from the installed game and are not redistributed. The mod and sprite have no broader reuse license; contact Naoassisto before reuploads, ports, or inclusion in another mod.

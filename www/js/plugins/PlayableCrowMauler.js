@@ -5,7 +5,7 @@
  * Load LAST. Choose Crow Mauler on the title screen, then Enter the dungeon.
  * Uses actor 1 as a campaign compatibility slot, only in new Mauler saves.
  * Original actors, enemy records and existing saves are not replaced.
- * See the release README.txt for adaptations and removal instructions.
+ * See the release README.md for adaptations and removal instructions.
  */
 (function() {
     'use strict';
