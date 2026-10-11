@@ -1,0 +1,128 @@
+CROW MAULER ENDING AUDIT — v1.7
+Audited against the installed game database and v1.5 NPC rules, 2026-10-10.
+Spoilers below. These are mod adaptations, not claims of canonical Mauler endings.
+
+DECISION
+Keep the solo exploration routes E, B and D with Mauler-specific, text-only
+conclusions and a credits card that returns to the title. Preserve guards ignoring
+Mauler and everyone else's hostile/fleeing behavior. Do not restore recruitment
+or dialogue to force the human endings to work. Original-character games retain
+the original scripts and endings.
+
+ALL MAIN ENDINGS
+
+E / escape:
+  Potential progression block: a living Le'garde flees instead of running the
+  event that enables switch 1000 (YOU_CAN_ESCAPE). The dead-prisoner interaction
+  can still enable it. Human/party exit conversations and the mercenary S check
+  also remain in the original exit lists.
+  Fix: reaching map 24 (level-7 prison) enables escape. Fortress exit events on
+  maps 74 and 131 retain that prerequisite and lead directly to the Mauler E
+  epilogue. Hard-mode human S flags do not select Cahara's ending.
+  Play: reach the level-7 prison, then return to the fortress entrance and leave.
+
+B / traces of Gro-goroth:
+  This is the natural solo route. The native post-victory choices are silenced,
+  but its B flag/transfer is outside those branches, so silence alone does NOT
+  make this ending impossible. However, it retains human dialogue/choreography
+  and becomes unsafe with old Girl scene flags or the generic NPC replacement.
+  Fix: the five Gauntlet threshold events (map 142 events 25,27,29,30,31) select
+  the solo controller (event 26). It runs original troop 169, with no escape;
+  victory alone reaches the B epilogue. Defeat retains the game's game-over
+  common event. The stray optional god battle at event 47, whose win sets the
+  generic S flag, is disabled in Mauler games.
+  Play: cut the three organs, descend through the God of the Depths, traverse
+  the Gauntlet, and defeat the Traces of Gro-goroth.
+
+C / defeat Le'garde, and C / submit to Le'garde:
+  Both require bringing Le'garde to the throne. Mauler cannot recruit him.
+  In a partially progressed save, his event flees, and the invisible controller's
+  two dialogue choice sequences are cancelled. This can leave a locked scene.
+  Fix: neither is a supported Mauler route. The shared final Void triggers on
+  maps 140,160,185 resolve to Mauler's D ascension instead. An old save already
+  in the final human ending map gets an explicitly labelled recovery epilogue.
+
+D / ascend as a new god:
+  The Endless Soul is gated by accepting Nilvan's request in map 138 event 3;
+  silence cancels the choice, losing the key while completing the dream.
+  The throne controller (map 146 event 4) also waits for a human stand-in to
+  move. The NPC hostility handler can erase that stand-in. The final troop 122
+  is chiefly a narrative/choice scene, ending with Abort Battle, not an ordinary
+  boss fight. Suppressing its choices can prevent switch 1888 and hang it.
+  Fix: Nilvan withdraws and leaves the Endless Soul when the player reaches her
+  dream through the Tower's existing route. The throne keeps its interaction,
+  transfers directly into the Void without waiting for the human stand-in,
+  and the final Void trigger starts the original two-headed Crow Mauler
+  encounter (troop 135), using stronger enemy records 529-532. It has a
+  7,000-HP torso, two 900-HP heads and a 900-HP maul arm. Original battle
+  scripts and attacks remain intact. Escape is disabled; only victory awards D. Existing Void traversal and any original
+  difficulty-specific encounters before that trigger remain in place.
+  Play: obtain the Cube of the Depths, explore Ma'habre, complete the soul/key
+  route, defeat Francois, claim the throne, then defeat the two-headed Mauler
+  at the end of the Void. The D epilogue acknowledges defeating the other Mauler.
+
+A / God of Fear and Hunger:
+  Requires the Girl in the party; her transformation has several sprite/autorun
+  stages (map 142 event 24; map 159). No recruitment makes it unreachable, and
+  forcing those flags can leave missing actors/stalled transformation scenes.
+  Fix: the normal final chamber consistently selects solo B. Old saves in map
+  159 return to map 142's solo finale. No Girl is recruited or manufactured.
+
+ALL FOUR HUMAN S ENDINGS
+
+Cahara:
+  His treasure chain can set switch 2662 (map 111 event 270) because Mauler uses
+  actor slot 1. The old fortress exit could therefore award a human S ending
+  and show Cahara's life story for Mauler. Mauler exits now always select E.
+
+D'arce:
+  Requires her resurrection route and Le'garde's transformation (map 24 event
+  169 page 19, switch 2656 -> 2249). Mauler is not D'arce, cannot recruit her,
+  and the living Le'garde event flees. Not a supported Mauler route.
+
+Enki:
+  Requires the Enki initial-character branch and equipped Spirit Anchor (armor
+  53) at the final Void scene. Mauler cannot equip armor and occupies actor 1.
+  Not a supported Mauler route; Void completion consistently selects D.
+
+Ragnvaldr:
+  Common event 248 requires actor 5, eight boss-soul armors including Crow
+  Mauler's armor 36, and the four greater soul items. Actor 5 cannot join and
+  the original Crow Mauler fight is deliberately suppressed. Not a supported
+  Mauler route; no false boss kill or free Crow Mauler soul is awarded.
+
+ENDING PRESENTATION AND RECOVERY
+Map 86 event 4 has separate pages for E,D,C,C2,B,A,generic S and each human S.
+Mauler uses a dedicated text scene instead of those human cinematics. It has
+three pages (two epilogue pages plus credits), Enter/click navigation, and a
+working return to title. It does not claim the original human-ending Steam
+achievements. Existing B/E terminal saves get the corresponding mod epilogue. Old D saves
+without a recorded Void victory, plus A/C/S terminal saves, get an explicitly
+labelled recovered completion. New D completions require the boss victory.
+The v1.7 migration clears serialized obsolete ending interpreters only on the
+specified cinematic maps. Normal dungeon saves keep their event progress.
+
+PROGRESSION GATES
+- Cube of the Depths: the pedestal interactions (map 22 events 83,85-89) are
+  object events and remain usable without trading or dialogue. No free cube.
+- Three organs: native object interactions on maps 24/127/141 set 1750/1751/1752;
+  map 17 opens the mouth when all three are cut. No automatic organ completion.
+- Endless Soul: granted once at Nilvan's dream; repaired if an older Mauler save
+  already set dream-complete flag 1805 but lost the soul to cancelled dialogue.
+- Enlightened/Tormented/Domination souls: real corresponding boss victories
+  preserve their progression rewards, including when the NPC adapter bypasses
+  a separate reward controller. Native reward commands cannot duplicate them.
+  A saved local Francois defeat also restores his missing throne/reward flags.
+- No change to Mauler stats, attacks, sprite scale, guard recognition or original
+  Crow Mauler suppression outside the specifically tagged Void boss events.
+
+SCOPE AND VERIFICATION
+Dungeon Nights has its own ending map 161 and naming-based setup; it is not a
+supported Mauler campaign or part of these main-game ending adaptations.
+Audited all ending flags in map, troop and common-event data. Automated runtime
+checks cover the Nilvan key/return, escape gate, Gro-goroth win, throne transfer,
+Void boss stats, suppression isolation, defeat not awarding D, victory and
+epilogue rendering/title return, and legacy ending handling.
+Battle victory tests remove enemy HP to test transitions; they are not balance
+proofs. This is not a complete start-to-finish manual campaign playthrough.
+Automated development tests are not included in the player download.

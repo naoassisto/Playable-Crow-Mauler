@@ -1,0 +1,127 @@
+PLAYABLE CROW MAULER — GAMEPLAY REFERENCE
+
+COMBAT VALUES
+
+The standard single-headed enemy's torso (Enemies.json #127) supplies:
+  HP 5000; MP 0; ATK 10; DEF 10; MAT 10; MDF 10; AGI 10; LUK 10.
+  Physical hit 95%; evasion 5%; normal physical attack element.
+  Blindness (#49) and enemy confusion (#28) immunity; preserve TP.
+  Enemy Auto Battle is removed so you can control the character.
+  Equipment is disabled: the maul and body are innate, preserving these values.
+  Other applied status effects can still change the effective statistics.
+
+Original body-part HP (reference, NOT extra player health bars):
+  Torso 5000; head 500; left arm 700; right arm 700; each leg 200.
+  The head has 85% physical evasion and 50% magic evasion, and is vulnerable
+  to blindness. Those are HEAD TARGET statistics, not torso-wide bonuses.
+  Harder enemy records include a 7000-HP torso and 900-HP head/maul arm.
+  This mod consistently uses the STANDARD 5000-HP form on every difficulty.
+  The double-headed mauler2 is a separate encounter and is not this character.
+
+ATTACKS
+
+Attack / Maul (clone of skill #93):
+  40 HP damage, 10% variance, 95% success, certain-hit type, no critical.
+  Fracture (#19) at 100%; arm infection (#56) at 30%; leg infection (#55)
+  independently at 30%. Original attack animation #68. No MP or TP cost.
+  Fracture applies its original traits, including max HP multiplied by 0.8.
+  Infection flags are applied exactly; enemies do not have the player's
+  out-of-battle infection countdown (common event #192).
+
+Peck (clone of skill #85):
+  Original physical hit/evasion rules, 100% skill success before hit/evasion,
+  Headless (#31) at 100% on a successful eligible hit, animation #69,
+  no MP/TP cost, +5 TP. The source's formula "30" is inactive because its
+  damage type is NONE; this is a decapitation effect, not 30 damage.
+  Original common event #240 mutilates player actors. The clone omits that
+  event and instead kills the selected enemy battler/part after Headless
+  successfully applies. Enemy immunities are respected. A multipart boss's
+  normal troop events decide what losing that part does to the entire boss.
+
+Flock of crows (clone of ENEMY skill #161):
+  20 HP damage, 20% variance, certain hit, 40% permanent blindness (#49),
+  animation #124, single target, one hit, no MP/TP cost, no critical.
+  This is not player spell #149 (70 damage x3 for 30 MP).
+
+Empty stare (clone of skill #94):
+  Original do-nothing action. No damage, no effects, no cost.
+
+All four actions appear in Skills. Attack also performs Maul.
+Run remains available. Talk is removed in Mauler runs, including older saves.
+NPCs do not offer dialogue, trading or recruitment to Crow Mauler.
+
+NPC REACTIONS (MAULER RUNS ONLY)
+
+* Living dungeon guards, elite guards, ballista guards and Moonless guards
+  ignore the player. Their GUARD_OUTFIT event-page condition is treated as
+  satisfied; guard chase and contact battles are suppressed. This does not
+  equip armor, add armor statistics, change the player's sprite, or enable
+  the disguise switch globally for other creatures.
+* Living NPCs with an existing battle start it on contact/interaction or within
+  three tiles with a clear path of sight. Explicit character identities prevent
+  a multi-character cutscene from selecting another character's battle.
+* NPCs without a battle retreat when approached (six tiles) or interacted with.
+  They move away and fade out, including trapped NPCs who cannot find a path.
+  Their departures and local battle defeats persist in Mauler saves.
+* Friendly dialogue, shops, recruitment and player Talk skills are unavailable.
+  Named dialogue from invisible cutscene controllers is also suppressed.
+  Object descriptions, ordinary doors and corpse/loot pages remain available.
+* NPC battle victories retain their direct native defeat/loot flags. Narrative
+  branches and conversations are bypassed. Mauler has three supported solo
+  endings with repaired progression gates; see ENDINGS below.
+* Original-character runs retain the original NPC behavior.
+
+ENDINGS
+
+* E — Beyond the Gates: reach Le'garde's level-7 prison, then leave through
+  the fortress entrance. His dialogue/recruitment is not required.
+* B — The Last Inspection: cut all three organs, descend through the God of
+  the Depths, cross the Gauntlet and defeat the Traces of Gro-goroth.
+* D — The Eternal Warden: complete the Ma'habre soul route, defeat Francois,
+  claim the throne, cross the Void and defeat the two-headed Crow Mauler.
+  This finale uses the original stronger mauler2 records: 7,000-HP torso,
+  two 900-HP heads and a 900-HP maul arm, with the original troop attacks.
+  No escape; victory is required for Ending D. Nilvan withdraws from
+  her dream and leaves the Endless Soul without requiring conversation.
+* All three have Mauler epilogues, credits and a return to title. The Girl's A,
+  both Le'garde C endings and the four human S endings are not Mauler routes.
+  Older saves already inside incompatible finale scenes have recovery handling.
+* Completed Nilvan dreams and saved Francois defeats repair missing quest gates.
+  No free Cube of the Depths or organ completion. The Void boss must be fought.
+* These are mod endings and do not award the original human-ending achievements.
+  Detailed findings for every ending are in ending-audit.txt.
+* Save, fully close and restart the game to load v1.7, then load your Mauler save.
+
+ADAPTATIONS AND LIMITS
+
+* One controllable actor uses the torso's health and traits. Six independently
+  targetable player body parts are NOT implemented. Original body-part records remain in your installed game database.
+* Two freely chosen actions per turn represent the boss's maul arm plus head.
+  The original enemy head randomly chooses Peck, stare, or Flock at turn end;
+  a player can choose instead. Its forced target selection does not run against your own party.
+* Actor 1 is the campaign compatibility slot in Mauler runs. This preserves
+  hunger, inventory and actor-specific event wiring. Recruitment is blocked.
+  Mauler-specific text endings replace the human ending cinematics.
+  A custom text intro replaces the human backstory. Both intro choices use the game's original skip-intro setup for
+  world generation and difficulty. The story is also in intro-text.json.
+* MP stays 0. Scripted human sanity checks receive a stable sanity value;
+  human phobia states are excluded. This prevents zero monster MP from
+  immediately producing human insanity penalties. Hunger remains active.
+* Uses the existing mauler1 walking sheet (index 0). The player battle sprite
+  is the supplied crow_mauler_player.png in img/sv_actors/, displayed at 350.2px
+  height (70% larger than v1.2) with its proportions and transparency preserved. Only a player actor
+  flagged as Crow Mauler uses it. Enemy art and menu portraits stay original.
+  Battle art is static with engine movement/effects, not an animated sheet. Injury
+  rules still run, but bespoke missing-limb walking/battle artwork is absent.
+* Original Crow Mauler NPCs, roaming controllers, arrival announcements and
+  battles (including sleep ambushes and the double-headed variant) are disabled
+  only in Mauler runs, except the deliberately enabled two-headed Void finale.
+  Beds use their existing safe-rest branch and remain
+  usable. This does not award boss loot or set the boss-defeated switch. Loading
+  an existing Mauler save refreshes the map to remove spawned Mauler NPCs.
+* Original enemy skills and database JSON files remain unchanged. New skills
+  occupy IDs 341–344; another mod using those IDs will require reconciliation.
+* Mod saves require this plugin. Original saves have no Mauler flag and retain
+  their original actors. Existing save files were not edited during testing.
+* Dungeon Nights is not a supported Mauler mode. The ending transitions have
+  automated runtime coverage; a full manual campaign playthrough is still untested.
